@@ -16,5 +16,5 @@ spec:
   values:
     image:
       repository: saikou/podinfo
-      tag: 0.4.11
+      tag: 0.1.1
     replicaCount: 3
