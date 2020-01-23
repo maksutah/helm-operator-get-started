@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: saikou/podinfo
-      tag: dev-b5nmtnvd
+      tag: dev-al8mvqdv
     replicaCount: 1
     hpa:
       enabled: false
