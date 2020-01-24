@@ -17,6 +17,8 @@ spec:
     image:
       repository: saikou/podinfo
       tag: dev-i5zhw0tu
+    service:
+      type: ClusterIP
     replicaCount: 1
     hpa:
       enabled: false
