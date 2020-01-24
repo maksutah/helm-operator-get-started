@@ -19,6 +19,6 @@ spec:
       tag: dev-i5zhw0tu
     service:
       type: ClusterIP
-    replicaCount: 1
+    replicaCount: 2
     hpa:
       enabled: false
