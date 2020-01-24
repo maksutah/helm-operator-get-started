@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: saikou/podinfo
-      tag: stg-ijngzx7y
+      tag: stg-e2rv3qwc
     replicaCount: 2
     hpa:
       enabled: true
