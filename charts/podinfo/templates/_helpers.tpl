@@ -45,7 +45,7 @@ Create the name of the service account to use
 {{/* Populate static-server configmap */}}
 {{- define "getConfig" }}
 {{- $files := .Files }}
-{{- $fileExist := printf "appConfig/config-dev.json"  | $files.Get }}
+{{- $fileExist := printf "appсonfig/config-dev.json"  | $files.Get }}
 {{- if $fileExist }}
   config.json: |
 {{ $fileExist | indent 4}}
