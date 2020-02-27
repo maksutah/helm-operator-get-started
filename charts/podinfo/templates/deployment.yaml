@@ -58,6 +58,11 @@ spec:
             - --h2c
             {{- end }}
           env:
+          - name: SPECIAL_LEVEL_KEY
+            valueFrom:
+              configMapKeyRef:
+                name: configmap-{{ template "podinfo.fullname" . }}
+                key: config.json
           {{- if .Values.ui.message }}
           - name: PODINFO_UI_MESSAGE
             value: {{ .Values.ui.message }}
