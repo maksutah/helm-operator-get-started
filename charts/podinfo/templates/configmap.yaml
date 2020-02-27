@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: static-server-configmap
+  name: configmap-{{ template "podinfo.fullname" . }}
   namespace: {{ .Values.namespace }}
 data:
 {{- include "getConfig" .}}
