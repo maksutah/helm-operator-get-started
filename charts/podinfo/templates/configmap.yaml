@@ -4,4 +4,6 @@ metadata:
   name: configmap-{{ template "podinfo.fullname" . }}
   namespace: {{ .Values.namespace }}
 data:
-{{- include "getConfig" .}}
+  config.json: |
+{{- $files := .Files }}
+{{ $files.Get "appconfig/config-dev.json" | indent 4 }}
