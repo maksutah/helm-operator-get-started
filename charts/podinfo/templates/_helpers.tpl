@@ -41,3 +41,13 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/* Populate static-server configmap */}}
+{{- define "getConfig" }}
+{{- $files := .Files }}
+{{- $fileExist := printf "appConfig/config-dev.json"  | $files.Get }}
+{{- if $fileExist }}
+  config.json: |
+{{ $fileExist | indent 4}}
+{{- end }}
+{{- end }}
