@@ -1,7 +1,8 @@
 {
   "Analytics": {
     "playtechAnalytics": {
-      "enabled": "true2"
+      "enabled": "true",
+      "enabled2": "true"
     }
   }
 }
