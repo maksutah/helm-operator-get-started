@@ -16,5 +16,5 @@ spec:
   values:
     image:
       repository: saikou/podinfo
-      tag: stg-2
+      tag: stg-3
     replicaCount: 1
