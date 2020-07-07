@@ -2,19 +2,24 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: podinfo-prod
+  name: podinfo-rc
   namespace: prod
   annotations:
     fluxcd.io/automated: "true"
-    filter.fluxcd.io/chart-image: semver:~0.1
+    filter.fluxcd.io/chart-image: glob:prod-*
 spec:
-  releaseName: podinfo-prod
+  releaseName: podinfo-rc
   chart:
     git: git@github.com:1saikou/helm-operator-get-started
     path: charts/podinfo
-    ref: master
+    ref: stg
   values:
     image:
       repository: saikou/podinfo
-      tag: 0.1.1
-    replicaCount: 3
+      tag: prod-2
+    replicaCount: 1
+    hpa:
+      enabled: true
+      maxReplicas: 10
+      cpu: 50
+      memory: 256Mi

@@ -1,2 +1,3 @@
 resources:
   - stg.yaml
+  - prod.yaml
