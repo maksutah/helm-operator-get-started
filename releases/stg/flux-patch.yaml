@@ -2,7 +2,7 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: podinfo-stg
+  name: podinfo-rc
   namespace: stg
   annotations:
     fluxcd.io/automated: "true"
@@ -18,3 +18,8 @@ spec:
       repository: saikou/podinfo
       tag: stg-2
     replicaCount: 1
+    hpa:
+      enabled: true
+      maxReplicas: 10
+      cpu: 50
+      memory: 256Mi
