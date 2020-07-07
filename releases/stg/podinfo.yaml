@@ -17,7 +17,7 @@ spec:
     image:
       repository: saikou/podinfo
       tag: stg-e2rv3qwc
-    replicaCount: 2
+    replicaCount: 1
     hpa:
       enabled: true
       maxReplicas: 10
