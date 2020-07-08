@@ -21,4 +21,4 @@ spec:
   values:
     namespace: demo-dgt-playtechone-com
     staticImage: saikou/static-server
-    staticImageTag: 0.0.6
+    staticImageTag: 0.0.7
