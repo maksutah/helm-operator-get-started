@@ -6,15 +6,7 @@ commandUpdated:
     # use https://github.com/squaremo/kubeyaml on flux-patch.yaml
     - containerImage:
         command: >-
-          echo $FLUX_WL_NS >> test-patch.yaml
-          echo "$FLUX_IMG:$FLUX_TAG" >> test-patch.yaml
-#          cat $FLUX_WL_NS/deployment.yaml |
-#          kubeyaml image --namespace $FLUX_WL_NS --kind $FLUX_WL_KIND --name $FLUX_WL_NAME --container $FLUX_CONTAINER --image "$FLUX_IMG:$FLUX_TAG"
-#          > new-flux-patch.yaml &&
-#          mv new-flux-patch.yaml flux-patch.yaml
+          cat $FLUX_WL_NS/deployment.yaml | kubeyaml image --namespace $FLUX_WL_NS --kind $FLUX_WL_KIND --name $FLUX_WL_NAME --container $FLUX_CONTAINER --image "$FLUX_IMG:$FLUX_TAG" > new-flux-patch.yaml && mv new-flux-patch.yaml flux-patch.yaml
       policy:
         command: >-
-          cat $FLUX_WL_NS/deployment.yaml |
-          kubeyaml annotate --namespace $FLUX_WL_NS --kind $FLUX_WL_KIND --name $FLUX_WL_NAME "fluxcd.io/$FLUX_POLICY=$FLUX_POLICY_VALUE"
-          > new-flux-patch.yaml &&
-          mv new-flux-patch.yaml flux-patch.yaml
+          cat $FLUX_WL_NS/deployment.yaml | kubeyaml annotate --namespace $FLUX_WL_NS --kind $FLUX_WL_KIND --name $FLUX_WL_NAME "fluxcd.io/$FLUX_POLICY=$FLUX_POLICY_VALUE" > new-flux-patch.yaml && mv new-flux-patch.yaml flux-patch.yaml
