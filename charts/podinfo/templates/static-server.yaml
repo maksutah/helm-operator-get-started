@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-server
+  namespace: {{ .Values.namespace }}
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  replicas: {{ .Values.staticServer.replicas }}
+  selector:
+    matchLabels:
+      app: static-server
+  template:
+    metadata:
+      labels:
+        app: static-server
+      annotations:
+        config/commit: "d5ba83c"
+    spec:
+      containers:
+        - name: static-server
+          image: {{ .Values.image.repository }}:{{ .Values.staticImageTag }}
+          imagePullPolicy: {{ .Values.staticServer.imagePullPolicy }}
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-server
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: static-server
+    prometheus: active
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: static-server

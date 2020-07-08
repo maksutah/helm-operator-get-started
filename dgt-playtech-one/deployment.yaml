@@ -1,0 +1,25 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: playtech-one
+  namespace: demo-dgt-playtechone-com
+  annotations:
+    fluxcd.io/automated: "true"
+    repository.fluxcd.io/app: staticImage
+    tag.fluxcd.io/app: staticImageTag
+#    filter.fluxcd.io/app: glob:*-develop
+spec:
+  forceUpgrade: true
+  rollback:
+    enable: true
+    wait: true
+    timeout: 1000
+  chart:
+    git: git@github.com:1saikou/helm-operator-get-started
+    path: charts/podinfo
+    ref: master
+  values:
+    namespace: demo-dgt-playtechone-com
+    imageTag: 1.55.2
+    staticImage: saikou/static-server
+    staticImageTag: 1.55.2.0-9724f0f-debug
