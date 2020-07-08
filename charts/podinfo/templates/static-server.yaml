@@ -21,7 +21,6 @@ spec:
       containers:
         - name: static-server
           image: {{ .Values.image.repository }}:{{ .Values.staticImageTag }}
-          imagePullPolicy: {{ .Values.staticServer.imagePullPolicy }}
           ports:
             - containerPort: 80
 
