@@ -3,6 +3,16 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: podinfo
+  namespace: prod
+spec:
+  values:
+    image:
+      tag: prod-333
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: podinfo
   namespace: stg
 spec:
   values:
