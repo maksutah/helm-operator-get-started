@@ -22,4 +22,4 @@ spec:
     namespace: demo-dgt-playtechone-com
     imageTag: 1.55.2
     staticImage: saikou/static-server
-    staticImageTag: 1.55.2.0-9724f0f-debug
+    staticImageTag: dev-55rff
