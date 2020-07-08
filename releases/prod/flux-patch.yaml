@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: saikou/podinfo
-      tag: prod-2
+      tag: prod-222
     replicaCount: 1
     hpa:
       enabled: true
