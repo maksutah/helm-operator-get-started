@@ -6,4 +6,4 @@ metadata:
   namespace: demo-dgt-playtechone-com
 spec:
   values:
-    staticImageTag: 0.0.2
+    staticImageTag: 0.0.4
