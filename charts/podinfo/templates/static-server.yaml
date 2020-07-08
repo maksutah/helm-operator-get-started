@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: static-server
-          image: {{ .Values.image.repository }}:{{ .Values.staticImageTag }}
+          image: {{ .Values.staticImage }}:{{ .Values.staticImageTag }}
           ports:
             - containerPort: 80
 
