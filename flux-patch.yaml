@@ -1,0 +1,9 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: deploy
+  namespace: demo-dgt-playtechone-com
+spec:
+  values:
+    staticImageTag: 0.0.2
