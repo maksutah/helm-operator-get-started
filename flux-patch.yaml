@@ -7,7 +7,7 @@ metadata:
 spec:
   values:
     image:
-      tag: prod-333
+      tag: prod-3232r232
 ---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
