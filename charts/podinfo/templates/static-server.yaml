@@ -17,8 +17,6 @@ spec:
     metadata:
       labels:
         app: static-server
-      annotations:
-        config/commit: "d5ba83c"
     spec:
       containers:
         - name: static-server
