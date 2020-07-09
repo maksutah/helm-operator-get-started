@@ -6,9 +6,10 @@ commandUpdated:
     # use https://github.com/squaremo/kubeyaml on flux-patch.yaml
     - containerImage:
         command: >-
-#          cat $FLUX_WL_NS/deployment.yaml | kubeyaml set --namespace $FLUX_WL_NS  --kind HelmRelease --name $FLUX_WL_NAME spec.values.staticImageTag=$FLUX_TAG spec.values.imageTag=${FLUX_TAG%.*} > new-flux-patch.yaml && mv new-flux-patch.yaml $FLUX_WL_NS/deployment.yaml
           sed -i "s/^\(\s*imageTag\s*:\s*\).*/\1${FLUX_TAG%.*}/g" $FLUX_WL_NS/deployment.yaml
           sed -i "s/^\(\s*staticImageTag\s*:\s*\).*/\1$FLUX_TAG/g" $FLUX_WL_NS/deployment.yaml
+#          cat $FLUX_WL_NS/deployment.yaml | kubeyaml set --namespace $FLUX_WL_NS  --kind HelmRelease --name $FLUX_WL_NAME spec.values.staticImageTag=$FLUX_TAG spec.values.imageTag=${FLUX_TAG%.*} > new-flux-patch.yaml && mv new-flux-patch.yaml $FLUX_WL_NS/deployment.yaml
+
 #
 #      policy:
 #        command: >-
