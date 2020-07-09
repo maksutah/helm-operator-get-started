@@ -20,5 +20,6 @@ spec:
     ref: master
   values:
     namespace: demo-dgt-playtechone-com
+    imageTag: 1.45.3
     staticImage: saikou/static-server
     staticImageTag: 0.0.8

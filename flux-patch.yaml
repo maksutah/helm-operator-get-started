@@ -4,6 +4,23 @@ kind: HelmRelease
 metadata:
   name: deploy
   namespace: demo-dgt-playtechone-com
+  annotations:
+    fluxcd.io/automated: "true"
+    repository.fluxcd.io/app: staticImage
+    tag.fluxcd.io/app: staticImageTag
+#    filter.fluxcd.io/app: glob:*-develop
 spec:
+  forceUpgrade: true
+  rollback:
+    enable: true
+    wait: true
+    timeout: 1000
+  chart:
+    git: git@github.com:1saikou/helm-operator-get-started
+    path: charts/podinfo
+    ref: master
   values:
-    staticImageTag: 0.0.6
+    namespace: demo-dgt-playtechone-com
+    imageTag: 1.45.3
+    staticImage: saikou/static-server
+    staticImageTag: 0.0.8
